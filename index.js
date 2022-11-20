@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 dotenv.config({ path: "./.env" });
 
 // Connect to MongoDB
-const URI = process.env.MONGODB_URI;
+const URI =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://admin:admin@cluster0.vgzxqnx.mongodb.net/?retryWrites=true&w=majority";
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
